@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Spanish Accent Detector</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f4f4;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 18px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #result {
+            margin-top: 30px;
+            font-size: 28px;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Spanish Accent Detector</h1>
+
+    <p>Discover your Spanish accent using AI</p>
+
+    <button id="recordBtn">🎤 Record Voice</button>
+
+    <p id="status"></p>
+    <p id="result"></p>
+
+    <script>
+
+        let recorder
+        let chunks = []
+
+        const API_URL = "https://accent-mvp-production.up.railway.app/predict"
+
+        document.getElementById("recordBtn").onclick = async () => {
+
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+
+            recorder = new MediaRecorder(stream)
+
+            recorder.start()
+
+            document.getElementById("status").innerText = "Recording..."
+
+            recorder.ondataavailable = e => {
+                chunks.push(e.data)
+            }
+
+            recorder.onstop = sendAudio
+
+            setTimeout(() => {
+                recorder.stop()
+            }, 4000)
+
+        }
+
+        async function sendAudio() {
+
+            document.getElementById("status").innerText = "Analyzing accent..."
+
+            const blob = new Blob(chunks, { type: "audio/wav" })
+
+            const formData = new FormData()
+            formData.append("file", blob, "audio.wav")
+
+            const response = await fetch(API_URL, {
+                method: "POST",
+                body: formData
+            })
+
+            const data = await response.json()
+
+            document.getElementById("result").innerText = "Detected accent: " + data.accent
+
+            chunks = []
+
+        }
+
+    </script>
+
+</body>
+
+</html>
