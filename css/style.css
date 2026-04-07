@@ -1,0 +1,309 @@
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+.hero {
+
+    padding: 30px 20px;
+
+    background: radial-gradient(circle at 30% 20%,
+            rgba(59, 130, 246, 0.25),
+            transparent 40%),
+        radial-gradient(circle at 70% 30%,
+            rgba(168, 85, 247, 0.25),
+            transparent 40%),
+        #020617;
+
+}
+
+/* HERO LAYOUT */
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    max-width: 1200px;
+    margin: auto;
+}
+
+.hero-text {
+    text-align: left;
+    max-width: 500px;
+}
+
+.hero h1 {
+
+    font-size: 56px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+
+}
+
+.hero p {
+
+    font-size: 20px;
+    color: #94a3b8;
+    max-width: 500px;
+
+}
+
+/* BUTTON */
+
+button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    color: black;
+}
+
+/* RESULT */
+
+#result {
+    margin-top: 30px;
+    font-size: 28px;
+    color: #22c55e;
+}
+
+/* GLOBE */
+
+#globe-container {
+    width: 420px;
+    height: 420px;
+}
+
+#globe-stage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* HOW SECTION */
+
+.how {
+    padding: 80px 20px;
+    background: #111827;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+}
+
+.steps div {
+    max-width: 200px;
+}
+
+/* ACCENTS */
+
+.accents {
+
+    padding: 80px 20px;
+    text-align: center;
+
+}
+
+.accents h2 {
+
+    font-size: 40px;
+    margin-bottom: 40px;
+
+}
+
+.accent-list {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+
+    max-width: 900px;
+    margin: auto;
+
+}
+
+.accent-pill {
+
+    padding: 10px 18px;
+
+    background: #0f172a;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-radius: 999px;
+
+    font-size: 15px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #e5e7eb;
+
+}
+
+.accent-pill:hover {
+
+    border-color: #3b82f6;
+
+    background: #1e293b;
+
+    transform: translateY(-2px);
+
+}
+
+.demo-section {
+    padding: 80px 20px;
+    background: #0b1b2b;
+}
+
+.demo-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.demo-card {
+    background: #0f2438;
+    border-radius: 16px;
+    padding: 40px;
+    width: 420px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.demo-card h2 {
+    margin-top: 0;
+}
+
+.demo-card p {
+    opacity: 0.8;
+}
+
+/* record circle */
+
+.record-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: none;
+    background: #e74c3c;
+    font-size: 28px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.record-text {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+/* form */
+
+.country-select {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: none;
+}
+
+.donate-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: none;
+    background: #2d9cdb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.upload-box {
+    margin-top: 15px;
+    padding: 12px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.language-switch {
+
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    display: flex;
+    gap: 12px;
+
+}
+
+.flag {
+
+    font-size: 36px;
+    display: inline-block;
+
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
+    border-radius: 18px;
+
+}
+
+.flag:hover {
+
+    transform: scale(1.2);
+
+}
+
+/* FOOTER */
+
+footer {
+    padding: 40px;
+    background: #020617;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .demo-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .demo-card {
+        width: 90%;
+    }
+
+    #globe-container {
+        width: 520px;
+        height: 520px;
+        position: relative;
+    }
+
+}

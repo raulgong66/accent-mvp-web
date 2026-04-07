@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Spanish Accent Detector</title>
+    <title>Detector de Acento Español</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-    <!-- HERO -->
+    <div class="language-switch">
+        <a href="index.html">EN</a> | <a href="es.html">ES</a>
+    </div>
 
     <header class="hero">
 
@@ -22,10 +26,9 @@
 
             <div class="hero-text">
 
-                <h1>Spanish Accent Detector</h1>
+                <h1>Detector de Acento en Español</h1>
 
-                <p>Discover your Spanish accent using AI speech analysis</p>
-
+                <p>Descubre tu acento en español usando análisis de voz con inteligencia artificial</p>
 
             </div>
 
@@ -34,69 +37,55 @@
         </div>
 
     </header>
-    <div class="language-switch">
 
-        <a href="index.html" title="English">
-            <span class="flag">🇺🇸</span>
-        </a>
-
-        <a href="es.html" title="Español">
-            <span class="flag">🇪🇸</span>
-        </a>
-
-    </div>
-    <!-- DEMO -->
 
     <section class="demo-section">
 
         <div class="demo-container">
 
-            <!-- TRY IT NOW -->
-
             <div class="demo-card">
 
-                <h2>Try it now</h2>
+                <h2>Pruébalo ahora</h2>
 
-                <p>Record a few seconds of natural speech</p>
+                <p>Graba unos segundos de voz natural</p>
 
                 <button id="recordBtn" class="record-circle">🎤</button>
 
-                <p id="status" class="record-text">Tap to record</p>
+                <p id="status" class="record-text">Toca para grabar</p>
 
                 <div id="result"></div>
 
             </div>
 
-            <!-- HELP US IMPROVE -->
 
             <div class="demo-card">
 
-                <h2>Help us improve</h2>
+                <h2>Ayúdanos a mejorar</h2>
 
-                <p>Donate a short clip to help train a better model.</p>
+                <p>Dona un pequeño clip de voz para mejorar el modelo.</p>
 
                 <select id="countrySelect" class="country-select">
 
-                    <option value="">— Select your country —</option>
-                    <option value="mexico">Mexico</option>
+                    <option value="">— Selecciona tu país —</option>
+                    <option value="mexico">México</option>
                     <option value="colombia">Colombia</option>
                     <option value="argentina">Argentina</option>
                     <option value="chile">Chile</option>
-                    <option value="peru">Peru</option>
+                    <option value="peru">Perú</option>
                     <option value="venezuela">Venezuela</option>
                     <option value="ecuador">Ecuador</option>
-                    <option value="panama">Panama</option>
+                    <option value="panama">Panamá</option>
                     <option value="el_salvador">El Salvador</option>
                     <option value="puerto_rico">Puerto Rico</option>
-                    <option value="dominican_republic">Dominican Republic</option>
+                    <option value="dominican_republic">República Dominicana</option>
 
                 </select>
 
-                <button id="donateBtn" class="donate-btn">🎙 Record my voice</button>
+                <button id="donateBtn" class="donate-btn">🎙 Grabar mi voz</button>
 
                 <div class="upload-box">
 
-                    📎 Or upload an audio file
+                    📎 O sube un archivo de audio
 
                 </div>
 
@@ -106,86 +95,72 @@
 
     </section>
 
-    <!-- HOW IT WORKS -->
 
     <section class="how">
 
-        <h2>How it works</h2>
+        <h2>Cómo funciona</h2>
 
         <div class="steps">
 
             <div>
-                <h3>1️⃣ Record</h3>
-                <p>Speak for a few seconds</p>
+                <h3>1️⃣ Graba</h3>
+                <p>Habla durante unos segundos</p>
             </div>
 
             <div>
-                <h3>2️⃣ AI Analysis</h3>
-                <p>Our AI analyzes speech patterns</p>
+                <h3>2️⃣ Análisis de IA</h3>
+                <p>Nuestra IA analiza los patrones del habla</p>
             </div>
 
             <div>
-                <h3>3️⃣ Accent Detection</h3>
-                <p>Your Spanish accent is identified</p>
+                <h3>3️⃣ Detección del acento</h3>
+                <p>Tu acento en español es identificado</p>
             </div>
 
         </div>
 
     </section>
 
-    <!-- ACCENTS -->
 
     <section class="accents">
 
-        <h2>Supported Accents</h2>
+        <h2>Acentos soportados</h2>
 
         <div class="accent-list">
 
             <span class="accent-pill">🇨🇺 Cuba</span>
-            <span class="accent-pill">🇩🇴 Dominican Republic</span>
-            <span class="accent-pill">🇲🇽 Mexico</span>
+            <span class="accent-pill">🇩🇴 República Dominicana</span>
+            <span class="accent-pill">🇲🇽 México</span>
             <span class="accent-pill">🇵🇷 Puerto Rico</span>
             <span class="accent-pill">🇨🇴 Colombia</span>
 
             <span class="accent-pill">🇨🇱 Chile</span>
             <span class="accent-pill">🇦🇷 Argentina</span>
             <span class="accent-pill">🇻🇪 Venezuela</span>
-            <span class="accent-pill">🇵🇦 Panama</span>
+            <span class="accent-pill">🇵🇦 Panamá</span>
             <span class="accent-pill">🇸🇻 El Salvador</span>
 
             <span class="accent-pill">🇪🇨 Ecuador</span>
-            <span class="accent-pill">🇺🇸 USA (Spanish)</span>
-            <span class="accent-pill">🌎 Central America</span>
+            <span class="accent-pill">🇺🇸 Español en EE.UU.</span>
+            <span class="accent-pill">🌎 Centroamérica</span>
 
         </div>
 
     </section>
 
+
     <footer>
 
-        <p>AI Speech Research Project</p>
+        <p>Proyecto de investigación en voz e inteligencia artificial</p>
 
     </footer>
 
-    <!-- LIBRARIES -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script src="js/globe.js"></script>
 
     <script src="js/recorder.js"></script>
-
-    <script>
-
-        function scrollToDemo() {
-
-            document.querySelector(".demo-section").scrollIntoView({
-                behavior: "smooth"
-            })
-
-        }
-
-    </script>
 
 </body>
 
