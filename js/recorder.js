@@ -97,18 +97,30 @@ async function startDonationRecording() {
 
     recorder.onstop = async () => {
 
-        const blob = new Blob(chunks, { type: "audio/wav" })
+        const blob = new Blob(chunks, { type: chunks[0].type })
 
         const formData = new FormData()
-        formData.append("file", blob, "audio.wav")
+        formData.append("audio", blob, "audio.webm")
         formData.append("country", country)
 
-        await fetch("https://YOUR_API_URL/donate", {
-            method: "POST",
-            body: formData
-        })
+        try {
 
-        alert("Thank you for helping improve the model!")
+            const response = await fetch("upload.php", {
+                method: "POST",
+                body: formData
+            })
+
+            const data = await response.json()
+            console.log(data)
+
+            alert("Thank you for helping improve the model!")
+
+        } catch (error) {
+
+            console.error("Upload error:", error)
+
+        }
+
     }
 
     recorder.start()
