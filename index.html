@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -26,14 +27,22 @@
 
                 <p>Discover your Spanish accent using AI speech analysis</p>
 
-
             </div>
 
-            <div id="globe-container"></div>
+            <!-- GLOBE CONTAINER -->
+
+            <div id="globe-container">
+
+                <!-- ORBIT FOR FLAGS -->
+
+                <div id="flagOrbit"></div>
+
+            </div>
 
         </div>
 
     </header>
+
     <div class="language-switch">
 
         <a href="index.html" title="English">
@@ -45,6 +54,7 @@
         </a>
 
     </div>
+
     <!-- DEMO -->
 
     <section class="demo-section">
@@ -78,26 +88,25 @@
                 <select id="countrySelect" class="country-select">
 
                     <option value="">— Select your country —</option>
-                    <option value="mexico">Mexico</option>
-                    <option value="colombia">Colombia</option>
                     <option value="argentina">Argentina</option>
                     <option value="chile">Chile</option>
-                    <option value="peru">Peru</option>
-                    <option value="venezuela">Venezuela</option>
+                    <option value="colombia">Colombia</option>
+                    <option value="cuba">Cuba</option>
                     <option value="ecuador">Ecuador</option>
-                    <option value="panama">Panama</option>
                     <option value="el_salvador">El Salvador</option>
+                    <option value="mexico">México</option>
+                    <option value="panama">Panamá</option>
+                    <option value="peru">Perú</option>
                     <option value="puerto_rico">Puerto Rico</option>
-                    <option value="dominican_republic">Dominican Republic</option>
+                    <option value="dominican_republic">República Dominicana</option>
+                    <option value="venezuela">Venezuela</option>
 
                 </select>
 
                 <button id="donateBtn" class="donate-btn">🎙 Record my voice</button>
 
                 <div class="upload-box">
-
                     📎 Or upload an audio file
-
                 </div>
 
             </div>
@@ -172,7 +181,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
     <script src="js/globe.js"></script>
-
     <script src="js/recorder.js"></script>
 
     <script>

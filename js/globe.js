@@ -73,21 +73,28 @@ document.addEventListener("DOMContentLoaded", function () {
         div.style.fontSize = "28px"
         div.style.pointerEvents = "none"
 
-        container.appendChild(div)
+        flagOrbit.appendChild(div)
 
         function animateFlag() {
 
-            const rect = container.getBoundingClientRect()
+            const width = container.clientWidth
+            const height = container.clientHeight
 
-            const angle = Date.now() * 0.0004 + i * 0.5
+            const angle = Date.now() * 0.0004 + (i / flags.length) * Math.PI * 2
 
-            const radius = rect.width * 0.35
+            const radius = Math.min(width, height) * 0.32
 
             const x = Math.cos(angle) * radius
             const y = Math.sin(angle) * radius
 
-            div.style.transform =
-                `translate(${rect.width / 2 - 15 + x}px, ${rect.height / 2 - 440 + y}px)`
+            // centro aproximado del globo en tu layout
+            const rect = renderer.domElement.getBoundingClientRect()
+
+            const centerX = rect.width / 2
+            const centerY = rect.height / 2
+
+            div.style.left = (centerX + x - 15) + "px"
+            div.style.top = (centerY + y - 15) + "px"
 
             requestAnimationFrame(animateFlag)
 

@@ -8,16 +8,22 @@
 
     <title>Detector de Acento Español</title>
 
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/style.css">
 
 </head>
 
 <body>
 
     <div class="language-switch">
-        <a href="index.html">EN</a> | <a href="es.html">ES</a>
+        <a href="index.html" title="English">
+            <span class="flag">🇺🇸</span>
+        </a>
+
+        <a href="es.html" title="Español">
+            <span class="flag">🇪🇸</span>
+        </a>
     </div>
 
     <header class="hero">
@@ -32,7 +38,13 @@
 
             </div>
 
-            <div id="globe-container"></div>
+            <div id="globe-container">
+
+                <!-- ORBIT FOR FLAGS -->
+
+                <div id="flagOrbit"></div>
+
+            </div>
 
         </div>
 
@@ -67,17 +79,18 @@
                 <select id="countrySelect" class="country-select">
 
                     <option value="">— Selecciona tu país —</option>
-                    <option value="mexico">México</option>
-                    <option value="colombia">Colombia</option>
                     <option value="argentina">Argentina</option>
                     <option value="chile">Chile</option>
-                    <option value="peru">Perú</option>
-                    <option value="venezuela">Venezuela</option>
+                    <option value="colombia">Colombia</option>
+                    <option value="cuba">Cuba</option>
                     <option value="ecuador">Ecuador</option>
-                    <option value="panama">Panamá</option>
                     <option value="el_salvador">El Salvador</option>
+                    <option value="mexico">México</option>
+                    <option value="panama">Panamá</option>
+                    <option value="peru">Perú</option>
                     <option value="puerto_rico">Puerto Rico</option>
                     <option value="dominican_republic">República Dominicana</option>
+                    <option value="venezuela">Venezuela</option>
 
                 </select>
 
