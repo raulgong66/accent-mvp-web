@@ -71,7 +71,8 @@ async function sendAudio() {
         guatemala: "🇬🇹",
         honduras: "🇭🇳",
         nicaragua: "🇳🇮",
-        costa_rica: "🇨🇷"
+        costa_rica: "🇨🇷",
+        cuba: "🇨🇺"
     }
 
     const accent = data.accent.toLowerCase()
