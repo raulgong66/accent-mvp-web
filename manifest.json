@@ -1,0 +1,26 @@
+{
+  "short_name": "Accent Detector",
+  "name": "Spanish regional Accent Detector",
+  "description": "Discover your Spanish regional accent using AI speech analysis.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0a1128",
+  "theme_color": "#0a1128",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "es-ES"
+}
