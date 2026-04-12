@@ -1,4 +1,4 @@
-const CACHE_NAME = 'accent-detector-v1';
+const CACHE_NAME = 'accent-detector-v2';
 const ASSETS = [
     './',
     './index.html',
