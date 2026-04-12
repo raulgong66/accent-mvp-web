@@ -13,9 +13,10 @@ $ALLOWED_TYPES = ['audio/webm', 'audio/wav', 'audio/mp4', 'audio/mpeg', 'audio/o
 $MAX_SIZE = 10 * 1024 * 1024; // 10MB
 
 $VALID_COUNTRIES = [
-    'cuba', 'dominicana', 'mexico', 'puerto_rico',
-    'colombia', 'chile', 'argentina', 'venezuela',
-    'panama', 'salvador', 'ecuador', 'usa', 'america_central'
+    'argentina', 'bolivia', 'chile', 'colombia', 'costa_rica',
+    'cuba', 'dominican_republic', 'ecuador', 'el_salvador', 'guatemala',
+    'honduras', 'mexico', 'nicaragua', 'panama', 'paraguay',
+    'peru', 'puerto_rico', 'spain', 'uruguay', 'usa', 'venezuela'
 ];
 
 // Create upload dir — 0775 so web server can write
