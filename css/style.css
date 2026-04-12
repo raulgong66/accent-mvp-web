@@ -70,8 +70,19 @@ button {
 
 #result {
     margin-top: 30px;
-    font-size: 28px;
+}
+
+.result-accent {
+    font-size: 32px;
+    font-weight: 700;
     color: #22c55e;
+    margin-bottom: 5px;
+}
+
+.result-confidence {
+    font-size: 16px;
+    color: #94a3b8;
+    opacity: 0.9;
 }
 
 /* GLOBE */

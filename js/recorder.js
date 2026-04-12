@@ -76,10 +76,14 @@ async function sendAudio() {
 
     const accent = data.accent.toLowerCase()
     const flag = flags[accent] || "🌎"
+    const confidence = Math.round(data.confidence * 100)
 
     status.innerText = ""
 
-    result.innerHTML = `Detected accent: ${flag} ${data.accent}`
+    result.innerHTML = `
+        <div class="result-accent">${flag} ${data.accent}</div>
+        <div class="result-confidence">Confidence: ${confidence}%</div>
+    `
 }
 
 /* ---------- DONATION RECORD ---------- */
