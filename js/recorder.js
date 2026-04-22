@@ -1,4 +1,5 @@
-const API_URL = "https://accent-mvp-production.up.railway.app/predict"
+// const API_URL = "https://accent-mvp-production.up.railway.app/predict" // Railway
+const API_URL = "https://accent-mvp.onrender.com/predict" // Render
 
 let recorder
 let chunks = []
