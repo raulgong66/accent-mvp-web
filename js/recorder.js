@@ -33,7 +33,7 @@ async function startDemoRecording() {
         recorder.stop()
         status.innerText = "Analyzing accent..."
         recordBtn.innerText = "🎤"
-    }, 4000)
+    }, 10000)
 }
 
 /* ---------- SEND AUDIO ---------- */
@@ -80,11 +80,19 @@ async function sendAudio() {
     const flag = flags[accentKey] || "🌎"
     const confidence = Math.round(data.confidence * 100)
     
-    // Beautify display name (e.g., puerto_rico -> Puerto Rico)
-    const displayName = data.accent
+    // Detect language from <html> tag
+    const isSpanish = document.documentElement.lang === "es"
+    
+    // Beautify display name
+    let displayName = data.accent
         .split('_')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
+        
+    // Bilingual logic for Dominican Republic
+    if (accentKey === "dominican_republic") {
+        displayName = isSpanish ? "República Dominicana" : "Dominican Republic"
+    }
 
     status.innerText = ""
 
@@ -149,5 +157,5 @@ async function startDonationRecording() {
     setTimeout(() => {
         recorder.stop()
         donateBtn.innerText = "🎙 Record my voice"
-    }, 6000)
+    }, 20000)
 }
