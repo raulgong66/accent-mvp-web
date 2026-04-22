@@ -76,14 +76,20 @@ async function sendAudio() {
         cuba: "🇨🇺"
     }
 
-    const accent = data.accent.toLowerCase()
-    const flag = flags[accent] || "🌎"
+    const accentKey = data.accent.toLowerCase()
+    const flag = flags[accentKey] || "🌎"
     const confidence = Math.round(data.confidence * 100)
+    
+    // Beautify display name (e.g., puerto_rico -> Puerto Rico)
+    const displayName = data.accent
+        .split('_')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 
     status.innerText = ""
 
     result.innerHTML = `
-        <div class="result-accent">${flag} ${data.accent}</div>
+        <div class="result-accent">${flag} ${displayName}</div>
         <div class="result-confidence">Confidence: ${confidence}%</div>
     `
 }
