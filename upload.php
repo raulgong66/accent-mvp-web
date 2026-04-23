@@ -2,6 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
@@ -16,7 +17,7 @@ $VALID_COUNTRIES = [
     'argentina', 'bolivia', 'chile', 'colombia', 'costa_rica',
     'cuba', 'dominican_republic', 'ecuador', 'el_salvador', 'guatemala',
     'honduras', 'mexico', 'nicaragua', 'panama', 'paraguay',
-    'peru', 'puerto_rico', 'spain', 'uruguay', 'usa', 'venezuela'
+    'peru', 'puerto_rico', 'spain', 'uruguay', 'usa', 'venezuela', 'equatorial_guinea'
 ];
 
 // Create upload dir — 0775 so web server can write
