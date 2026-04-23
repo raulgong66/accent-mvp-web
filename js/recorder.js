@@ -39,67 +39,88 @@ async function startDemoRecording() {
 /* ---------- SEND AUDIO ---------- */
 
 async function sendAudio() {
-
-    const blob = new Blob(chunks, { type: "audio/wav" })
-
-    const formData = new FormData()
-    formData.append("file", blob, "audio.wav")
-
-    const response = await fetch(API_URL, {
-        method: "POST",
-        body: formData
-    })
-
-    const data = await response.json()
-
-    const flags = {
-        mexico: "🇲🇽",
-        argentina: "🇦🇷",
-        chile: "🇨🇱",
-        colombia: "🇨🇴",
-        peru: "🇵🇪",
-        spain: "🇪🇸",
-        usa: "🇺🇸",
-        puerto_rico: "🇵🇷",
-        dominican_republic: "🇩🇴",
-        venezuela: "🇻🇪",
-        ecuador: "🇪🇨",
-        panama: "🇵🇦",
-        el_salvador: "🇸🇻",
-        bolivia: "🇧🇴",
-        uruguay: "🇺🇾",
-        paraguay: "🇵🇾",
-        guatemala: "🇬🇹",
-        honduras: "🇭🇳",
-        nicaragua: "🇳🇮",
-        costa_rica: "🇨🇷",
-        cuba: "🇨🇺"
-    }
-
-    const accentKey = data.accent.toLowerCase()
-    const flag = flags[accentKey] || "🌎"
-    const confidence = Math.round(data.confidence * 100)
+    const status = document.getElementById("status")
+    const result = document.getElementById("result")
     
-    // Detect language from <html> tag
-    const isSpanish = document.documentElement.lang === "es"
+    status.innerText = "Analyzing accent..."
     
-    // Beautify display name
-    let displayName = data.accent
-        .split('_')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+    // Timer to notify if server is cold starting (Render free tier)
+    const wakeUpTimer = setTimeout(() => {
+        status.innerText = "Server is waking up, please wait (this can take 30s)..."
+    }, 5000)
+
+    try {
+        const blob = new Blob(chunks, { type: "audio/wav" })
+        const formData = new FormData()
+        formData.append("file", blob, "audio.wav")
+
+        const response = await fetch(API_URL, {
+            method: "POST",
+            body: formData
+        })
+
+        if (!response.ok) throw new Error(`Server error: ${response.status}`)
+
+        const data = await response.json()
+        clearTimeout(wakeUpTimer) // Stop the timer if we got a response
+
+        const flags = {
+            mexico: "🇲🇽",
+            argentina: "🇦🇷",
+            chile: "🇨🇱",
+            colombia: "🇨🇴",
+            peru: "🇵🇪",
+            spain: "🇪🇸",
+            usa: "🇺🇸",
+            puerto_rico: "🇵🇷",
+            dominican_republic: "🇩🇴",
+            venezuela: "🇻🇪",
+            ecuador: "🇪🇨",
+            panama: "🇵🇦",
+            el_salvador: "🇸🇻",
+            bolivia: "🇧🇴",
+            uruguay: "🇺🇾",
+            paraguay: "🇵🇾",
+            guatemala: "🇬🇹",
+            honduras: "🇭🇳",
+            nicaragua: "🇳🇮",
+            costa_rica: "🇨🇷",
+            cuba: "🇨🇺"
+        }
+
+        const accentKey = data.accent.toLowerCase()
+        const flag = flags[accentKey] || "🌎"
+        const confidence = Math.round(data.confidence * 100)
         
-    // Bilingual logic for Dominican Republic
-    if (accentKey === "dominican_republic") {
-        displayName = isSpanish ? "República Dominicana" : "Dominican Republic"
+        // Detect language from <html> tag
+        const isSpanish = document.documentElement.lang === "es"
+        
+        // Beautify display name
+        let displayName = data.accent
+            .split('_')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+            
+        // Bilingual logic for Dominican Republic
+        if (accentKey === "dominican_republic") {
+            displayName = isSpanish ? "República Dominicana" : "Dominican Republic"
+        }
+
+        status.innerText = ""
+
+        result.innerHTML = `
+            <div class="result-accent">${flag} ${displayName}</div>
+            <div class="result-confidence">Confidence: ${confidence}%</div>
+        `
+
+    } catch (error) {
+        clearTimeout(wakeUpTimer)
+        console.error("Inference Error:", error)
+        status.innerText = isSpanish 
+            ? "❌ Error de conexión. Por favor, intenta de nuevo." 
+            : "❌ Connection error. Please try again."
+        status.style.color = "#ff4444"
     }
-
-    status.innerText = ""
-
-    result.innerHTML = `
-        <div class="result-accent">${flag} ${displayName}</div>
-        <div class="result-confidence">Confidence: ${confidence}%</div>
-    `
 }
 
 /* ---------- DONATION RECORD ---------- */
